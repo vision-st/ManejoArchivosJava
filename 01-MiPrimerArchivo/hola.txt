@@ -1,0 +1,3 @@
+Hola, estoy manipulado por el bufferedWriter
+Java es magnifico !
+Imagina las posibilidades
