@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class VerduleriaDonJaime {
@@ -28,12 +29,34 @@ public class VerduleriaDonJaime {
         }while(opcion != 3);
     }
 
+    private static void registrarVenta(Scanner scanner) {
+        System.out.println("Ingrese el nombre de un producto: ");
+        String producto = scanner.nextLine();
+        System.out.println("Ingrese la cantidad: ");
+        double cantidad = scanner.nextDouble();
+
+        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("ventas.txt", true))){
+            bufferedWriter.write("Producto: " + producto + " | Cantidad: " + cantidad + " kg");
+            bufferedWriter.newLine();
+            System.out.println("Venta guardada correctamente");
+        }catch(IOException e){
+            System.out.println("Error al guardar venta " + e.getMessage());
+        }
+    }
+
     private static void mostrarVentas() {
-
+        try(BufferedReader bf = new BufferedReader(new FileReader("ventas.txt"))){
+            String linea;
+            System.out.println("====REGISTRO DE VENTAS=====");
+            while((linea = bf.readLine()) != null){
+                System.out.println(linea);
+            }
+            System.out.println("====FIN DEL REGISTRO====");
+        }catch(IOException e){
+            System.out.println("Error al leer ventas, no se encontraron registros " + e.getMessage());
+        }
     }
 
-    private static void registrarVenta(Scanner sc) {
 
-    }
 
 }

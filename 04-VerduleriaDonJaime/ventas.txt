@@ -1,0 +1,4 @@
+Producto: manzanas | Cantidad: 10.0 kg
+Producto: platanos | Cantidad: 19.0 kg
+Producto: uvas | Cantidad: 1.0 kg
+Producto: dkfkjdfdf | Cantidad: 323234.0 kg
